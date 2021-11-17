@@ -1,1 +1,2 @@
-# vue3elementui-chrome-extension
+# vue3+element-ui 的chrome插件模板
+> 

@@ -1,0 +1,64 @@
+{
+	"manifest_version": 2,
+	"name": "chrome插件vue",
+	"version": "0.0.1",
+	"description": "通过vue3开发插件测试",
+	"icons":
+	{
+		"16": "img/grab.png",
+		"48": "img/grab.png",
+		"128": "img/grab.png"
+	},
+	"background":
+	{
+		"page": "background.html"
+		// "scripts": ["js/background.js"]
+	},
+	"page_action":
+	{
+		"default_icon": "img/grab.png",
+		"default_title": ""
+	},
+	"content_scripts": 
+	[
+		{
+			// "matches": ["https://ms.czce.com.cn/*"],//https://ms.czce.com.cn/*  http://localhost/*
+			"matches": ["https://fanyi.baidu.com/*"],//https://ms.czce.com.cn/*  http://localhost/*
+
+			// 多个JS按顺序注入
+			"js": [
+				"js/utils/vue3/vue.global.js", 
+				"js/utils/element-plus/index.full.js", 
+				"js/utils/axios/axios.min.js",
+				"js/utils/moment.min.js",
+
+
+				"js/utils/commonUtils.js",
+				"js/component/testComponent.js", 
+				"js/winFrame.js"
+			],
+			// JS的注入可以随便一点，但是CSS的注意就要千万小心了，因为一不小心就可能影响全局样式
+			"css": [
+				"css/element-plus/index.css", 
+				"css/winFrame.css"
+			],
+			// 代码注入的时间，可选值： "document_start", "document_end", or "document_idle"，最后一个表示页面空闲时，默认document_idle
+			"run_at": "document_end"
+		}
+	],
+	// 权限申请
+	"permissions":
+	[	
+		"contextMenus", // 右键菜单
+		"tabs", // 标签
+		"notifications",// 通知
+		"webRequest", // web请求
+		"webRequestBlocking", // 阻塞式web请求
+		"declarativeContent",
+		"storage", // 插件本地存储
+		"http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+		"https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+	],
+	// 普通页面能够直接访问的插件资源列表，如果不设置是无法直接访问的
+	"web_accessible_resources": ["js/*","img/*"]
+}

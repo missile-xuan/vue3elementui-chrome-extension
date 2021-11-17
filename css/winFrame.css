@@ -1,0 +1,62 @@
+.plug-vue3-main-div{
+  width: 500px;
+  height: 500px;
+  background: white;
+  border: 1px solid #E4E7ED;
+	box-shadow: -1px 1px 20px #888888;
+	border-radius: 3px;
+	font-family: PingFangSC-Regular;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction:column; 
+}
+
+.plug-drag-bar{
+  height: 30px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.plug-frame-middle{
+  flex-grow: 1;
+  height: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.plug-frame-bottom{
+  height: 4px;
+  display: flex;
+  flex-direction: row;
+}
+
+.plug-body{
+  flex-grow: 1;
+}
+
+.plug-drag-width{
+  height: 100%;
+  width: 4px;
+  cursor: w-resize;
+}
+.plug-drag-height{
+  height: 100%;
+  flex-grow: 1;
+  cursor: n-resize;
+}
+.plug-drag-width-height{
+  width: 4px;
+  height: 100%;
+}
+
+.plug-thumbnail{
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+}
