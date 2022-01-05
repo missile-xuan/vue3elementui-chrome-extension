@@ -106,8 +106,7 @@ const mainVue = Vue.createApp({
 		},
 	}
 }).use(ElementPlus)
-// 设置组件
-setComponent(mainVue)
+.component("test-component", testComponent)
 
 mainVue.mount('#vue3mainDiv')
 
